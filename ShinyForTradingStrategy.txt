@@ -1,0 +1,19 @@
+This Shiny application is designed to help analysing trading strategies. It is an ongoing project that I improve when time allows. Feel free to get in touch should you have any suggestion.
+
+*How to use the App as it is?
+The App uses as input several csv files (one for each strategy). Each file has two columns: date and daily return. There is an example of such a file in the Github repository. The code is essentially made of 3 files.
+-ui.R: controls the layout and appearance of the app
+-server.R: contains the instructions needed to build the app. You can load as much strategies as you want as long as the corresponding csv file has the right format (see below).
+-shinyStrategyGeneral.R: loads the required packages and launches the app
+put ui.R and server.R file in a separate directory
+
+In the server.R file change the inputPath, inputFile and keepColumns parameters to match your setting. The first two are self explanatory the third one is a list of column names within the csv file. Keep only date and daily return.
+
+*How to add a trading strategy?
+-Create the corresponding csv file
+-Create a new input in the data reactive function (within the server.R file)
+-Add an extra element to the choice parameter in the first selectInput in the sidebarPanel (within the ui.R file). The element's name should match the name of the new input above.
+
+*How to remove a trading strategy?
+-Remove the input in the data reactive function corresponding to the strategy you want to remove (within the server.R file)
+-Remove the element in the choice parameter in the first selectInput in the sidebarPanel corresponding to the strategy you want to remove (within the ui.R file).

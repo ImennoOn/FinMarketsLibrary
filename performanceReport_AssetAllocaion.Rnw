@@ -1,0 +1,27 @@
+%#######################################################
+%# Dynamic Equity Bond Allocation
+%# Report
+%#
+%# romadanovskiy@gmail.com - Aug 2015
+%#######################################################
+
+\documentclass{article}
+\title{Dynamic Equity vs. Bond Allocation \\ Performance Report}
+\usepackage[top=0.1in, bottom=0.1in, left=1in, right=1in]{geometry}
+\usepackage[labelformat=empty]{caption} % remove table 1 etc...
+ 
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\date{\vspace{-5ex}} % remove date & suppress the space that goes with it
+\maketitle
+ 
+<<fooa,echo=FALSE,message=FALSE,warning=FALSE,fig.align='center',fig.width=7.5,fig.height=5.5,results="asis">>= 
+source("./performanceReportWithKnitr.R")
+
+performanceReport(inputPath="./",
+                  inputFile="mocRtnFile.csv",
+                  keepColumns=c("date","optimAlloc..."))
+
+@
+
+\end{document}
